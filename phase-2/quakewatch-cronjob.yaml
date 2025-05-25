@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: quakewatch-cronjob
+spec:
+  schedule: "0 * * * *"  # Run every hour
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: quakewatch-container
+            image: nirreich84/quakewatch:latest
+            command: ["python", "app.py"]
+          restartPolicy: OnFailure
