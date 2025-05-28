@@ -1,0 +1,135 @@
+# --- General ---
+*.pdf
+*secret*
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Dependency directories
+node_modules/
+vendor/
+bower_components/
+jspm_packages/
+target/ # For Java/Scala builds
+build/
+dist/
+out/
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+*.pid
+*.seed
+*.out
+*.pid.lock
+
+# Local configuration files (often contain secrets or local overrides)
+.env
+.env.*
+!/.env.example # Often good to commit an example .env file
+config.local.js
+config.local.json
+local.settings.json
+*.local
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compressed files (if they are build artifacts)
+*.tar
+*.gz
+*.zip
+*.rar
+
+# --- Docker ---
+
+# Docker image build artifacts and local Docker files
+Dockerfile.local
+docker-compose.override.yml
+docker-compose.local.yml
+.dockerignore # Usually you want to commit this, but can be ignored if generated
+!.dockerignore # Ensure .dockerignore is NOT ignored if it's part of the project setup
+
+# If you build images locally and don't want to commit them
+# *.tar.gz # If you save images as tarballs locally
+# *.docker # Docker image files
+
+# --- Kubernetes ---
+
+# Local Kubeconfig files (SHOULD NOT BE COMMITTED if they contain sensitive cluster access)
+# Be very careful with these. It's generally better to manage kubeconfig outside the repo.
+# kubeconfig
+# .kube/config
+# *.kubeconfig
+
+# Generated manifests if they are built from templates and shouldn't be versioned directly
+# (e.g., if you use kustomize overlays that are then built)
+# kustomize/dist/
+# generated-manifests/
+
+# --- Helm ---
+
+# Helm chart packages
+*.tgz
+
+# Helm chart dependency directory (managed by `helm dependency update`)
+charts/ # If this directory is used for downloaded dependencies
+# If you have your own subcharts in `charts/` that ARE part of your project,
+# then do NOT ignore `charts/`. Instead, you might ignore specific tgz files within it:
+# charts/*.tgz
+
+# Temporary chart build files
+tmpcharts/
+
+# Helm chart lock files (if you prefer not to commit them, though often they are)
+# requirements.lock
+# Chart.lock
+
+# --- Secrets & Sensitive Data ---
+# Add any files that contain secrets, API keys, passwords, etc.
+# It's best practice to use a secrets management system instead of committing secrets.
+secrets.yaml
+secrets.yml
+*.key
+*.pem
+credentials.*
+*.credential
+private.key
+id_rsa
+
+# --- Specific Tooling ---
+
+# Terraform state files (if using Terraform for K8s infrastructure)
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+.terraformrc
+terraform.rc
+
+# --- Miscellaneous ---
+# Add any other project-specific fi
